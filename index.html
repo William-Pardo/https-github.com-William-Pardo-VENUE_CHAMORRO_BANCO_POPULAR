@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Walkthrough 360 — Banco Popular</title>
+  <link rel="stylesheet" href="pannellum/pannellum.css" />
+  <style>
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #000; font-family: Arial, Helvetica, sans-serif; }
+    #panorama { width: 100vw; height: 100vh; }
+    .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 18px; color: #fff; background: rgba(0,0,0,.45); backdrop-filter: blur(6px); box-sizing: border-box; }
+    .topbar-title { font-size: 16px; font-weight: 600; letter-spacing: .2px; }
+    .topbar-actions { display: flex; gap: 8px; }
+    .topbar button { border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: 8px 14px; color: #fff; background: rgba(255,255,255,.12); cursor: pointer; font-size: 13px; }
+    .topbar button:hover { background: rgba(255,255,255,.22); }
+    .bottombar { position: fixed; left: 50%; bottom: 18px; z-index: 10; transform: translateX(-50%); padding: 10px 16px; color: #fff; background: rgba(0,0,0,.45); border-radius: 999px; font-size: 14px; text-align: center; backdrop-filter: blur(6px); }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-title">Walkthrough 360 — Banco Popular</div>
+    <div class="topbar-actions">
+      <button id="homeButton" type="button">Inicio</button>
+      <button id="fullscreenButton" type="button">Pantalla completa</button>
+    </div>
+  </div>
+  <div id="panorama"></div>
+  <div class="bottombar">Usa el mouse para mirar alrededor. Haz clic en los puntos para avanzar.</div>
+  <script src="pannellum/pannellum.js"></script>
+  <script>
+    const viewer = pannellum.viewer('panorama', {
+      default: { firstScene: 's01_portal', sceneFadeDuration: 800, autoLoad: true, yaw: 0, hfov: 100 },
+      hotSpotDebug: false,
+      scenes: {
+        s01_portal: {
+          title: 'S01 Portal', type: 'equirectangular', panorama: 'Render/BANCO_POPULAR/S01 PORTAL.png', yaw: 0, hfov: 100, autoLoad: true,
+          hotSpots: [{ pitch: -4, yaw: 10, type: 'scene', text: 'Entrar al Túnel', sceneId: 's02_tunel' }]
+        },
+        s02_tunel: {
+          title: 'S02 Túnel', type: 'equirectangular', panorama: 'Render/BANCO_POPULAR/S02 TUNEL.png', yaw: 0, hfov: 100, autoLoad: true,
+          hotSpots: [
+            { pitch: -4, yaw: 15, type: 'scene', text: 'Photo Opportunities', sceneId: 's03_photo_opportunities' },
+            { pitch: -4, yaw: -165, type: 'scene', text: 'Volver al Portal', sceneId: 's01_portal' }
+          ]
+        },
+        s03_photo_opportunities: {
+          title: 'S03 Photo Opportunities', type: 'equirectangular', panorama: 'Render/BANCO_POPULAR/S03 PHOTO OPORTUNITIES.png', yaw: 0, hfov: 100, autoLoad: true,
+          hotSpots: [
+            { pitch: -4, yaw: 15, type: 'scene', text: 'Plaza Central', sceneId: 's10_plaza_central' },
+            { pitch: -4, yaw: -165, type: 'scene', text: 'Volver al Túnel', sceneId: 's02_tunel' }
+          ]
+        },
+        s10_plaza_central: {
+          title: 'S10 Plaza Central', type: 'equirectangular', panorama: 'Render/BANCO_POPULAR/S10 PLAZA CENTRAL.png', yaw: 0, hfov: 100, autoLoad: true,
+          hotSpots: [
+            { pitch: -4, yaw: 70, type: 'scene', text: 'Atajadas', sceneId: 's04_atajadas' },
+            { pitch: -4, yaw: -35, type: 'scene', text: 'Pases', sceneId: 's05_pases' },
+            { pitch: -4, yaw: -70, type: 'scene', text: 'Penaltis', sceneId: 's06_penaltis' },
+            { pitch: -4, yaw: -105, type: 'scene', text: 'Comida', sceneId: 's07_comida' },
+            { pitch: -4, yaw: -140, type: 'scene', text: 'Zona VIP', sceneId: 's08_zona_vip' },
+            { pitch: -4, yaw: 140, type: 'scene', text: 'Tarima', sceneId: 's09_tarima' },
+            { pitch: -4, yaw: -170, type: 'scene', text: 'Volver a Photo Opportunities', sceneId: 's03_photo_opportunities' }
+          ]
+        },
+        s04_atajadas: {
+          title: 'S04 Atajadas', type: 'equirectangular', panorama: 'Render/BANCO_POPULAR/S04 ATAJADAS.png', yaw: 0, hfov: 100, autoLoad: true,
+          hotSpots: [{ pitch: -4, yaw: -165, type: 'scene', text: 'Volver a Plaza Central', sceneId: 's10_plaza_central' }]
+        },
+        s05_pases: {
+          title: 'S05 Pases', type: 'equirectangular', panorama: 'Render/BANCO_POPULAR/S05 PASES.png', yaw: 0, hfov: 100, autoLoad: true,
+          hotSpots: [{ pitch: -4, yaw: -165, type: 'scene', text: 'Volver a Plaza Central', sceneId: 's10_plaza_central' }]
+        },
+        s06_penaltis: {
+          title: 'S06 Penaltis', type: 'equirectangular', panorama: 'Render/BANCO_POPULAR/S06 PENALTIS.png', yaw: 0, hfov: 100, autoLoad: true,
+          hotSpots: [
+            { pitch: -4, yaw: 70, type: 'scene', text: 'Tarima', sceneId: 's09_tarima' },
+            { pitch: -4, yaw: -165, type: 'scene', text: 'Volver a Plaza Central', sceneId: 's10_plaza_central' }
+          ]
+        },
+        s07_comida: {
+          title: 'S07 Comida', type: 'equirectangular', panorama: 'Render/BANCO_POPULAR/S07 COMIDAS BP.png', yaw: 0, hfov: 100, autoLoad: true,
+          hotSpots: [
+            { pitch: -4, yaw: 70, type: 'scene', text: 'Tarima', sceneId: 's09_tarima' },
+            { pitch: -4, yaw: -165, type: 'scene', text: 'Volver a Plaza Central', sceneId: 's10_plaza_central' }
+          ]
+        },
+        s08_zona_vip: {
+          title: 'S08 Zona VIP', type: 'equirectangular', panorama: 'Render/BANCO_POPULAR/S08 ZONA VIP.png', yaw: 0, hfov: 100, autoLoad: true,
+          hotSpots: [{ pitch: -4, yaw: -165, type: 'scene', text: 'Volver a Plaza Central', sceneId: 's10_plaza_central' }]
+        },
+        s09_tarima: {
+          title: 'S09 Tarima', type: 'equirectangular', panorama: 'Render/BANCO_POPULAR/S09 TARIMA.png', yaw: 0, hfov: 100, autoLoad: true,
+          hotSpots: [
+            { pitch: -4, yaw: -35, type: 'scene', text: 'Penaltis', sceneId: 's06_penaltis' },
+            { pitch: -4, yaw: 35, type: 'scene', text: 'Comida', sceneId: 's07_comida' },
+            { pitch: -4, yaw: -165, type: 'scene', text: 'Volver a Plaza Central', sceneId: 's10_plaza_central' }
+          ]
+        }
+      }
+    });
+    document.getElementById('homeButton').addEventListener('click', function () { viewer.loadScene('s01_portal'); });
+    document.getElementById('fullscreenButton').addEventListener('click', function () {
+      const element = document.documentElement;
+      if (element.requestFullscreen) element.requestFullscreen();
+      else if (element.webkitRequestFullscreen) element.webkitRequestFullscreen();
+      else if (element.msRequestFullscreen) element.msRequestFullscreen();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+﻿LEEME - WALKTHROUGH 360 BANCO POPULAR
+
+1. Abrí la carpeta VENUE_CHAMORRO_BANCO_POPULAR.
+2. Ejecutá INICIAR_SERVIDOR_LOCAL.bat.
+3. El navegador abrirá: http://localhost:8000/index.html
+4. Si no abre solo, copiá esa URL manualmente en Chrome/Edge.
+5. No abras index.html con doble clic: Pannellum puede fallar por CORS.
+6. Para pantalla completa, usá el botón "Pantalla completa" dentro del walkthrough.
+7. No mover ni renombrar index.html, pannellum/ ni Render/.
+8. No mover ni renombrar las imágenes dentro de Render/BANCO_POPULAR/.
