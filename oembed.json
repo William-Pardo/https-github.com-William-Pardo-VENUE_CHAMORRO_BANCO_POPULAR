@@ -1,0 +1,14 @@
+﻿{
+    "version":  "1.0",
+    "type":  "rich",
+    "provider_name":  "Banco Popular 360",
+    "provider_url":  "https://william-pardo.github.io/",
+    "title":  "Walkthrough 360 — Banco Popular",
+    "author_name":  "Royal Films / Banco Popular",
+    "width":  1280,
+    "height":  720,
+    "html":  "\u003ciframe src=\"https://william-pardo.github.io/https-github.com-William-Pardo-VENUE_CHAMORRO_BANCO_POPULAR/canva.html\" width=\"1280\" height=\"720\" frameborder=\"0\" allowfullscreen\u003e\u003c/iframe\u003e",
+    "thumbnail_url":  "https://william-pardo.github.io/https-github.com-William-Pardo-VENUE_CHAMORRO_BANCO_POPULAR/Render/BANCO_POPULAR/S01%20PORTAL.png",
+    "thumbnail_width":  1280,
+    "thumbnail_height":  720
+}
