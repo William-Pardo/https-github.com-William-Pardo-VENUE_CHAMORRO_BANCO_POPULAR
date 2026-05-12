@@ -17,6 +17,11 @@
     .scene-cta { position: fixed; right: 24px; bottom: 24px; z-index: 20; display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 999px; color: #fff; text-decoration: none; font-size: 14px; font-weight: 700; letter-spacing: .2px; background: rgba(0,0,0,.56); border: 1px solid rgba(255,255,255,.55); box-shadow: 0 10px 30px rgba(0,0,0,.30); backdrop-filter: blur(8px); transition: transform .2s ease, background .2s ease, opacity .2s ease; }
     .scene-cta:hover { background: rgba(255,255,255,.20); transform: translateY(-2px); }
     .scene-cta.hidden { display: none; }
+    .scene-cta::after { content: ''; position: absolute; inset: -5px; border-radius: inherit; border: 1px solid rgba(255,255,255,.72); opacity: 0; animation: ctaPulse 2.4s ease-out infinite; pointer-events: none; }
+    .scene-cta::before { content: ''; width: 8px; height: 8px; border-radius: 999px; background: #fff; box-shadow: 0 0 12px rgba(255,255,255,.95); animation: ctaGlow 1.6s ease-in-out infinite; }
+    @keyframes ctaPulse { 0% { transform: scale(.98); opacity: .55; } 70% { transform: scale(1.18); opacity: 0; } 100% { transform: scale(1.18); opacity: 0; } }
+    @keyframes ctaGlow { 0%, 100% { opacity: .55; transform: scale(.9); } 50% { opacity: 1; transform: scale(1.18); } }
+    @media (prefers-reduced-motion: reduce) { .scene-cta::before, .scene-cta::after { animation: none; } }
     @media (max-width: 720px) { .scene-cta { right: 14px; bottom: 78px; padding: 10px 14px; font-size: 13px; } }
   </style>
 </head>
@@ -124,5 +129,6 @@
   </script>
 </body>
 </html>
+
 
 
