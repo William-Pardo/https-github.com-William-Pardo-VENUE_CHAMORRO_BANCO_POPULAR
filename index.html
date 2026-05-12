@@ -23,6 +23,28 @@
     @keyframes ctaGlow { 0%, 100% { opacity: .55; transform: scale(.9); } 50% { opacity: 1; transform: scale(1.18); } }
     @media (prefers-reduced-motion: reduce) { .scene-cta::before, .scene-cta::after { animation: none; } }
     @media (max-width: 720px) { .scene-cta { right: 14px; bottom: 78px; padding: 10px 14px; font-size: 13px; } }
+    .pnlm-tooltip span {
+      visibility: visible !important;
+      opacity: 1 !important;
+      display: inline-block !important;
+      min-width: max-content;
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(0, 0, 0, .82);
+      border: 1px solid rgba(255, 255, 255, .42);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .45), 0 0 0 2px rgba(0, 0, 0, .65);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.15;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, .95);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .pnlm-tooltip:hover span {
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
   </style>
 </head>
 <body>
@@ -129,6 +151,8 @@
   </script>
 </body>
 </html>
+
+
 
 
 
