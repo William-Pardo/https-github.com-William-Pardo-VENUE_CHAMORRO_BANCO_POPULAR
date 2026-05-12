@@ -14,6 +14,10 @@
     .topbar button { border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: 8px 14px; color: #fff; background: rgba(255,255,255,.12); cursor: pointer; font-size: 13px; }
     .topbar button:hover { background: rgba(255,255,255,.22); }
     .bottombar { position: fixed; left: 50%; bottom: 18px; z-index: 10; transform: translateX(-50%); padding: 10px 16px; color: #fff; background: rgba(0,0,0,.45); border-radius: 999px; font-size: 14px; text-align: center; backdrop-filter: blur(6px); }
+    .scene-cta { position: fixed; right: 24px; bottom: 24px; z-index: 20; display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 999px; color: #fff; text-decoration: none; font-size: 14px; font-weight: 700; letter-spacing: .2px; background: rgba(0,0,0,.56); border: 1px solid rgba(255,255,255,.55); box-shadow: 0 10px 30px rgba(0,0,0,.30); backdrop-filter: blur(8px); transition: transform .2s ease, background .2s ease, opacity .2s ease; }
+    .scene-cta:hover { background: rgba(255,255,255,.20); transform: translateY(-2px); }
+    .scene-cta.hidden { display: none; }
+    @media (max-width: 720px) { .scene-cta { right: 14px; bottom: 78px; padding: 10px 14px; font-size: 13px; } }
   </style>
 </head>
 <body>
@@ -25,6 +29,7 @@
     </div>
   </div>
   <div id="panorama"></div>
+  <a id="presentationButton" class="scene-cta hidden" href="https://www.canva.com/design/DAHJXKqg4AI/ZY9rthyOgRg9RN8X_rF_7g/edit" target="_blank" rel="noopener noreferrer" aria-label="Abrir presentación de Canva">Ver presentación ↗</a>
   <div class="bottombar">Usa el mouse para mirar alrededor. Haz clic en los puntos para avanzar.</div>
   <script src="pannellum/pannellum.js"></script>
   <script>
@@ -98,6 +103,17 @@
         }
       }
     });
+    const presentationButton = document.getElementById('presentationButton');
+    function updatePresentationButton() {
+      if (viewer.getScene && viewer.getScene() === 's09_tarima') {
+        presentationButton.classList.remove('hidden');
+      } else {
+        presentationButton.classList.add('hidden');
+      }
+    }
+    viewer.on('scenechange', updatePresentationButton);
+    viewer.on('load', updatePresentationButton);
+    updatePresentationButton();
     document.getElementById('homeButton').addEventListener('click', function () { viewer.loadScene('s01_portal'); });
     document.getElementById('fullscreenButton').addEventListener('click', function () {
       const element = document.documentElement;
@@ -108,3 +124,5 @@
   </script>
 </body>
 </html>
+
+
